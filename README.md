@@ -19,7 +19,9 @@ Identify Discrepancies:
   Display the roles and lists where discrepancies are found.
   
 User Selection:
-  Prompt the user to select the discrepancies they want to synchronize.
+  Prompt the user to select the discrepancies they want to synchronize 
+  note:  The script is designed to operate on a sequential priority basis,following the order of dev -> qas -> prd. This means that any discrepancies between dev and qas will result in qas aligning its exclusion lists with dev. Similarly, discrepancies between qas and prd will be resolved by making prd align with qas.
+         Before proceeding with synchronization, please review policies, for sample role dev exclusions should always contains or eqaul qas, qas exclusions should always contains or eqaul prd.
   
 Sync Selected Exclusion Lists:
   API Used: POST /api/policies/{policy_id}
